@@ -1,11 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-export const Fab = ({ title }: FabProps) => {
+export const Fab = ({ position = 'bottomRight', title, onPress }: FabProps) => {
   return (
     <TouchableOpacity
-      onPress={() => console.log('touch')}
-      style={styles.fabLocationBR}>
+      onPress={onPress}
+      style={
+        position === 'bottomRight' ? styles.fabLocationBR : styles.fabLocationBL
+      }>
       <View style={styles.fab}>
         <Text style={styles.fabText}>{title}</Text>
       </View>
@@ -14,7 +16,10 @@ export const Fab = ({ title }: FabProps) => {
 };
 
 interface FabProps {
+  position?: 'bottomLeft' | 'bottomRight';
   title: string;
+
+  onPress: () => void;
 }
 
 const styles = StyleSheet.create({

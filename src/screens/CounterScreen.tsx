@@ -9,7 +9,12 @@ export const CounterScreen = () => {
     <View style={styles.container}>
       <Text style={styles.title}>Counter: {counter}</Text>
 
-      <Fab title="+" />
+      <Fab title="+" onPress={() => setCounter(counter + 1)} />
+      <Fab
+        position="bottomLeft"
+        title="-"
+        onPress={() => setCounter(counter - 1)}
+      />
     </View>
   );
 };
