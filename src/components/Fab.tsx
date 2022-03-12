@@ -1,18 +1,27 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TouchableNativeFeedback,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
 export const Fab = ({ position = 'bottomRight', title, onPress }: FabProps) => {
   return (
-    <TouchableOpacity
-      onPress={onPress}
+    <View
       style={[
         styles.fabLocation,
-        position === 'bottomRight' ? styles.left : styles.right,
+        position === 'bottomRight' ? styles.right : styles.left,
       ]}>
-      <View style={styles.fab}>
-        <Text style={styles.fabText}>{title}</Text>
-      </View>
-    </TouchableOpacity>
+      <TouchableNativeFeedback
+        onPress={onPress}
+        background={TouchableNativeFeedback.Ripple('#28425b', false, 25)}>
+        <View style={styles.fab}>
+          <Text style={styles.fabText}>{title}</Text>
+        </View>
+      </TouchableNativeFeedback>
+    </View>
   );
 };
 
