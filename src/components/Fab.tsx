@@ -4,25 +4,46 @@ import {
   Text,
   TouchableNativeFeedback,
   TouchableOpacity,
+  Platform,
   View,
 } from 'react-native';
 
 export const Fab = ({ position = 'bottomRight', title, onPress }: FabProps) => {
-  return (
-    <View
-      style={[
-        styles.fabLocation,
-        position === 'bottomRight' ? styles.right : styles.left,
-      ]}>
-      <TouchableNativeFeedback
-        onPress={onPress}
-        background={TouchableNativeFeedback.Ripple('#28425b', false, 25)}>
+  const ios = () => {
+    return (
+      <TouchableOpacity
+        activeOpacity={0.8}
+        style={[
+          styles.fabLocation,
+          position === 'bottomRight' ? styles.right : styles.left,
+        ]}
+        onPress={onPress}>
         <View style={styles.fab}>
           <Text style={styles.fabText}>{title}</Text>
         </View>
-      </TouchableNativeFeedback>
-    </View>
-  );
+      </TouchableOpacity>
+    );
+  };
+
+  const android = () => {
+    return (
+      <View
+        style={[
+          styles.fabLocation,
+          position === 'bottomRight' ? styles.right : styles.left,
+        ]}>
+        <TouchableNativeFeedback
+          onPress={onPress}
+          background={TouchableNativeFeedback.Ripple('#28425b', false, 25)}>
+          <View style={styles.fab}>
+            <Text style={styles.fabText}>{title}</Text>
+          </View>
+        </TouchableNativeFeedback>
+      </View>
+    );
+  };
+
+  return Platform.OS === 'ios' ? ios() : android();
 };
 
 interface FabProps {
