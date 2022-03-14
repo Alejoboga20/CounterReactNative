@@ -14,11 +14,11 @@ export const FlexScreen = () => {
 const styles = StyleSheet.create({
   contaier: {
     flex: 1,
-    flexDirection: 'row-reverse',
     backgroundColor: '#28c4d9',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
   },
   box1: {
-    flex: 1,
     borderWidth: 2,
     borderColor: 'white',
     fontSize: 30,
