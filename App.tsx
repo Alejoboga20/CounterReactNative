@@ -1,11 +1,11 @@
 import React from 'react';
 import { SafeAreaView } from 'react-native';
-import { DimensionsScreen } from './src/screens/DimensionsScreen';
+import { PositionScreen } from './src/screens/PositionScreen';
 
 export const App = () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <DimensionsScreen />
+      <PositionScreen />
     </SafeAreaView>
   );
 };
