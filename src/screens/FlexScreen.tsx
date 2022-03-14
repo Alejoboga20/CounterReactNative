@@ -15,11 +15,9 @@ const styles = StyleSheet.create({
   contaier: {
     flex: 1,
     backgroundColor: '#28c4d9',
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    alignItems: 'flex-end',
   },
   box1: {
+    alignSelf: 'flex-start',
     borderWidth: 2,
     borderColor: 'white',
     fontSize: 30,
